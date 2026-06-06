@@ -109,6 +109,4 @@ PostgreSQL
 * Resilience Testing
 * Recovery Validation
 
-## Author
 
-Built as a hands-on Platform Engineering and DevOps portfolio project.
