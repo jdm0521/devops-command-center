@@ -25,14 +25,12 @@ jobs:
       - name: Build Backend Image
         run: |
           docker build \
-          -t ${{ secrets.ACR_NAME }}.azurecr.io/backend:${IMAGE_TAG} \
           -t ${{ secrets.ACR_NAME }}.azurecr.io/backend:latest \
           ./backend
 
       - name: Build Frontend Image
         run: |
           docker build \
-          -t ${{ secrets.ACR_NAME }}.azurecr.io/frontend:${IMAGE_TAG} \
           -t ${{ secrets.ACR_NAME }}.azurecr.io/frontend:latest \
           ./frontend
 
