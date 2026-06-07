@@ -30,8 +30,3 @@ node_modules/
 __pycache__/
 
 
-# Terraform
-.terraform/
-*.tfstate
-*.tfstate.*
-.terraform.lock.hcl

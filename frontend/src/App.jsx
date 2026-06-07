@@ -18,7 +18,7 @@ function App() {
       setIncidents(data);
       });
 
-    fetchfetch(`${API_URL}/change-requests`)
+    fetch(`${API_URL}/change-requests`)
       .then((response) => response.json())
       .then((data) => {
       setChangeRequests(data);
