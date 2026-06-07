@@ -11,14 +11,14 @@ function App() {
   
 
   useEffect(() => {
-    fetch(`${API_URL}/incidents`)
+    fetch("/api/incidents")
       .then((response) => response.json())
       .then((data) => {
       console.log(data);
       setIncidents(data);
       });
 
-    fetch(`${API_URL}/change-requests`)
+    fetch("/api/change-requests")
       .then((response) => response.json())
       .then((data) => {
       setChangeRequests(data);
@@ -27,7 +27,7 @@ function App() {
   }, []);
 
   const createIncident = () => {
-    fetch(`${API_URL}/incidents`,  {
+    fetch("/api/incidents", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
