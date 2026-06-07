@@ -28,3 +28,10 @@ dist-ssr
 node_modules/
 .env
 __pycache__/
+
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: db
+  namespace: devops-command-center
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: db
+
+  template:
+    metadata:
+      labels:
+        app: db
+
+    spec:
+      containers:
+      - name: postgres
+
+        image: postgres:15
+
+        ports:
+        - containerPort: 5432
+
+        env:
+        - name: POSTGRES_USER
+          value: postgres
+
+        - name: POSTGRES_PASSWORD
+          value: DevOpsLab123!
+
+        - name: POSTGRES_DB
+          value: commandcenter

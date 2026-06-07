@@ -6,18 +6,19 @@ function App() {
   const [status, setStatus] = useState("");
   const [incidents, setIncidents] = useState([]); //incidents is the state value and setIncidents is how react updates that state. 
   const [changeRequests, setChangeRequests] = useState([]);
+  const API_URL = "http://BACKEND_EXTERNAL_IP:8000";
 
   
 
   useEffect(() => {
-    fetch("http://localhost:8000/incidents")
+    fetch(`${API_URL}/incidents`)
       .then((response) => response.json())
       .then((data) => {
       console.log(data);
       setIncidents(data);
       });
 
-    fetch("http://localhost:8000/change-requests")
+    fetchfetch(`${API_URL}/change-requests`)
       .then((response) => response.json())
       .then((data) => {
       setChangeRequests(data);
@@ -26,7 +27,7 @@ function App() {
   }, []);
 
   const createIncident = () => {
-    fetch("http://localhost:8000/incidents", {
+    fetch(`${API_URL}/incidents`,  {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
