@@ -1,0 +1,26 @@
+services:
+
+  db:
+    image: postgres:15
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: DevOpsLab123!
+      POSTGRES_DB: commandcenter
+
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./backend
+
+    restart: unless-stopped
+
+    ports:
+      - "8000:8000"
+
+    environment:
+      DATABASE_URL: postgresql://postgres:DevOpsLab123!@db:5432/commandcenter
+
+    depends_on:
+      - db
