@@ -16,23 +16,25 @@ function App() {
       console.log(data);
       setIncidents(data);
       });
-  }, [])
-      fetch("http://localhost:8000/change-requests")
+
+    fetch("http://localhost:8000/change-requests")
       .then((response) => response.json())
       .then((data) => {
       setChangeRequests(data);
-  });
+      });
+
+  }, []);
 
   const createIncident = () => {
-  fetch("http://localhost:8000/incidents", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      title,
-      severity,
-      status,
+    fetch("http://localhost:8000/incidents", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title,
+        severity,
+        status,
     }),
   })
     .then((response) => response.json())
