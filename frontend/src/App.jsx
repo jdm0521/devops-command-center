@@ -45,14 +45,44 @@ function App() {
     });
   };
 
+   const openIncidents = incidents.filter(
+    incident => incident.status === "Open"
+    ).length;
+
+    const criticalIncidents = incidents.filter(
+      incident => incident.severity === "Critical"
+    ).length;
+
   return (
   <div className="container">
       <div className="header">
       <h1>DevOps Command Center</h1>
     <p>Enterprise Change & Incident Management Platform</p>
     </div>
-    <h2>Create Incident</h2>
 
+    
+    <div className="metrics">
+  <div className="metric-card">
+    <h2>{incidents.length}</h2>
+    <p>Total Incidents</p>
+  </div>
+
+  <div className="metric-card">
+    <h2>{changeRequests.length}</h2>
+    <p>Total Change Requests</p>
+  </div>
+  
+  <div className="metric-card">
+  <h2>{openIncidents}</h2>
+  <p>Open Incidents</p>
+  </div>
+
+  <div className="metric-card">
+  <h2>{criticalIncidents}</h2>
+  <p>Critical Incidents</p>
+  </div>
+  </div>
+    <h2>Create Incident</h2>
     <input
       type="text"
       placeholder="Title"
@@ -89,9 +119,33 @@ function App() {
       >
       <h3>{incident.title}</h3>
 
-      <p>Severity: {incident.severity}</p>
+      <p>
+        Severity:{" "}
+      <span
+      className={`badge ${
+      incident.severity === "Critical"
+          ? "critical"
+          : incident.severity === "Medium"
+          ? "medium"
+          : "low"
+    }`}
+  >
+    {incident.severity}
+  </span>
+</p>
 
-      <p>Status: {incident.status}</p>
+      <p>
+        Status:{" "}
+      <span
+      className={`badge ${
+      incident.status === "Open"
+        ? "open"
+        : "closed"
+    }`}
+  >
+    {incident.status}
+  </span>
+  </p>
     </div>
   ))}
   </div>

@@ -24,3 +24,52 @@ body {
 .card h3 {
   margin-top: 0;
 }
+
+.metrics {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 1rem;
+  min-width: 200px;
+}
+
+.metric-card h2 {
+  margin: 0;
+}
+
+.metric-card p {
+  margin-bottom: 0;
+}
+
+.badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.critical {
+  background-color: #dc2626;
+}
+
+.medium {
+  background-color: #f59e0b;
+}
+
+.low {
+  background-color: #16a34a;
+}
+
+.open {
+  background-color: #16a34a;
+}
+
+.closed {
+  background-color: #64748b;
+}
