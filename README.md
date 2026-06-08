@@ -25,19 +25,19 @@ The platform was built to demonstrate practical DevOps and Platform Engineering 
 
 # Executive Architecture
 
-![Executive Architecture](screenshots/architecture.png)
+![Executive Architecture](screenshots/Architecture.png)
 
 ---
 
 # Kubernetes Architecture
 
-![Kubernetes Architecture](screenshots/architecture.png)
+![Kubernetes Architecture](screenshots/Architecture.png)
 
 ---
 
 # Security & Secrets Architecture
 
-![Security Architecture](screenshots/architecture.png)
+![Security Architecture](screenshots/Architecture.png)
 
 ---
 
