@@ -19,19 +19,35 @@ spec:
 
     spec:
       containers:
-      - name: postgres
+      - name: db
 
-        image: postgres:15
+        image: postgres:16
+
+        envFrom:
+        - secretRef:
+            name: postgres-secret
+
+        env:
+        - name: PGDATA
+          value: /var/lib/postgresql/data/pgdata
 
         ports:
         - containerPort: 5432
 
-        env:
-        - name: POSTGRES_USER
-          value: postgres
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
 
-        - name: POSTGRES_PASSWORD
-          value: DevOpsLab123!
+          limits:
+            cpu: "1000m"
+            memory: "1Gi"
 
-        - name: POSTGRES_DB
-          value: commandcenter
+        volumeMounts:
+        - name: postgres-storage
+          mountPath: /var/lib/postgresql/data
+
+      volumes:
+      - name: postgres-storage
+        persistentVolumeClaim:
+          claimName: postgres-pvc
